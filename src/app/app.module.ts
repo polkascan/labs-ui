@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
+    MatTableModule
   ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},

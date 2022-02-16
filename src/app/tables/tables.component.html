@@ -37,9 +37,24 @@
       </mat-card>
     </div>
 
+    <div class="tables-networks">
+      <mat-card>
+        <mat-card-title>Chain</mat-card-title>
+        <mat-card-content>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Kusama</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Polkadot</mat-checkbox>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
 
   <div class="tables-body">
+    <h1>Average extrinsic phase events per block by day</h1>
+
     <div style="float: right;">
       <button mat-flat-button>
         <span class="material-icons">share</span>
@@ -52,7 +67,28 @@
       </button>
     </div>
 
+    <table mat-table [dataSource]="dataSource" style="width: 100%">
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{element.date | date : 'shortDate'}}</td>
+      </ng-container>
 
+      <ng-container matColumnDef="polkadot">
+        <th mat-header-cell *matHeaderCellDef>Polkadot</th>
+        <td mat-cell *matCellDef="let element">{{element.polkadot}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="kusama">
+        <th mat-header-cell *matHeaderCellDef>Kusama</th>
+        <td mat-cell *matCellDef="let element">{{element.kusama}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns;"
+      ></tr>
+    </table>
 
 
   </div>
