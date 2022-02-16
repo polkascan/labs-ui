@@ -235,13 +235,15 @@
           <th class="calendar-week-day-header calender-week-day-column" *ngFor="let day of daysOfWeek">
             <span>{{ day | date : 'shortDate' }}</span>
             <ng-container *ngIf="(day | date : 'd') as dayOfMonth">
-              <ng-container *ngIf="dayOfMonth === '1' || dayOfMonth === '20' || dayOfMonth === '' + todayDate">
-                <span class="calendar-week-day-has-events"></span>
-              </ng-container>
-              <ng-container *ngIf="dayOfMonth === '' + todayDate">
+              <ng-container *ngIf="(day | date : 'c') as weekOfDay">
+                <ng-container *ngIf="weekOfDay === '1' || weekOfDay === '3' || dayOfMonth === '' + todayDate || weekOfDay === '6'">
+                  <span class="calendar-week-day-has-events"></span>
+                </ng-container>
+                <ng-container *ngIf="dayOfMonth === '' + todayDate">
                 <span class="calendar-week-day-is-today">
                   <span class="material-icons">calendar_today</span>
                 </span>
+                </ng-container>
               </ng-container>
             </ng-container>
           </th>
@@ -310,13 +312,17 @@
         </tr>
         <tr>
           <td class="calendar-week-time-column">06:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td *ngFor="let day of daysOfWeek">
+            <ng-container *ngIf="(day | date : 'c') as dayOfWeek">
+              <ng-container *ngIf="dayOfWeek === '6'">
+                  <span class="calendar-week-day-time-event">
+                    <span class="calender-event-desc">Execute scheduled task</span>
+                    <a href="#" class="calendar-block-label">#6549452</a>
+                    <span class="calendar-block-time">06:54</span>
+                  </span>
+              </ng-container>
+            </ng-container>
+          </td>
         </tr>
         <tr>
           <td class="calendar-week-time-column">07:00</td>
@@ -330,13 +336,17 @@
         </tr>
         <tr>
           <td class="calendar-week-time-column">08:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td *ngFor="let day of daysOfWeek">
+            <ng-container *ngIf="(day | date : 'c') as dayOfWeek">
+              <ng-container *ngIf="dayOfWeek === '3'">
+                  <span class="calendar-week-day-time-event">
+                    <span class="calender-event-desc">Election of new council candidates</span>
+                    <a href="#" class="calendar-block-label">#654700</a>
+                    <span class="calendar-block-time">14:20</span>
+                  </span>
+              </ng-container>
+            </ng-container>
+          </td>
         </tr>
         <tr>
           <td class="calendar-week-time-column">09:00</td>
@@ -373,7 +383,7 @@
 
           <td *ngFor="let day of daysOfWeek">
             <ng-container *ngIf="(day | date : 'd') as dayOfMonth">
-              <ng-container *ngIf="dayOfMonth === '1' || dayOfMonth === '20' || dayOfMonth === '' + todayDate">
+              <ng-container *ngIf="dayOfMonth === '' + todayDate">
                   <span class="calendar-week-day-time-event">
                     <span class="calender-event-desc">Start staking session 1,234</span>
                     <a href="#" class="calendar-block-label">#654321</a>
@@ -395,13 +405,17 @@
         </tr>
         <tr>
           <td class="calendar-week-time-column">14:00</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td *ngFor="let day of daysOfWeek">
+            <ng-container *ngIf="(day | date : 'c') as dayOfWeek">
+              <ng-container *ngIf="dayOfWeek === '1'">
+                  <span class="calendar-week-day-time-event">
+                    <span class="calender-event-desc">Runtime upgrade Polkadot-9110</span>
+                    <a href="#" class="calendar-block-label">#654100</a>
+                    <span class="calendar-block-time">14:20</span>
+                  </span>
+              </ng-container>
+            </ng-container>
+          </td>
         </tr>
         <tr>
           <td class="calendar-week-time-column">15:00</td>
@@ -417,7 +431,7 @@
           <td class="calendar-week-time-column">16:00</td>
           <td *ngFor="let day of daysOfWeek">
             <ng-container *ngIf="(day | date : 'd') as dayOfMonth">
-              <ng-container *ngIf="dayOfMonth === '1' || dayOfMonth === '20' || dayOfMonth === '' + todayDate">
+              <ng-container *ngIf="dayOfMonth === '' + todayDate">
                   <span class="calendar-week-day-time-event">
                     <span class="calender-event-desc">Start parachain lease period 66</span>
                     <a href="#" class="calendar-block-label">#654364</a>
