@@ -1,1 +1,59 @@
-<p>tables works!</p>
+<nav class="tables-menu">
+  <button mat-flat-button>
+    <span class="material-icons">menu</span> Settings
+  </button>
+</nav>
+
+<h1>Charts</h1>
+
+<div class="tables-container">
+  <div class="tables-left-bar">
+
+    <div class="tables-default-tables-filter">
+      <mat-card>
+        <mat-card-title>Tables</mat-card-title>
+        <mat-card-content>
+          <button
+            class="top-bar-menu-selector ps-top-bar-network-option"
+            mat-button [matMenuTriggerFor]="networkMenu">
+            Table of the day <span class="material-icons">keyboard_arrow_down</span>
+          </button>
+          <mat-menu #networkMenu="matMenu">
+            <button mat-menu-item>Table of the day</button>
+            <button mat-menu-item>Something else</button>
+          </mat-menu>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="tables-search-filter">
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Search</mat-label>
+            <input matInput placeholder="" value=""><span class="material-icons">search</span>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+
+  <div class="tables-body">
+    <div style="float: right;">
+      <button mat-flat-button>
+        <span class="material-icons">share</span>
+      </button>
+      <button mat-flat-button>
+        <span class="material-icons">link</span>
+      </button>
+      <button mat-flat-button>
+        <span class="material-icons">print</span>
+      </button>
+    </div>
+
+
+
+
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.tables-menu {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: solid 1px #aaaaaa;
+  background: #fff;
+}
+
+.tables-container {
+  display: flex;
+}
+
+.tables-left-bar {
+  flex: 0 1 auto;
+  padding-right: 20px;
+}
+
+.tables-body {
+  flex: 1 1 auto;
+  max-width: 100%;
+  overflow-y: visible;
+}
+
