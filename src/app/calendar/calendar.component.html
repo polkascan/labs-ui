@@ -1,0 +1,506 @@
+<nav class="calendar-menu">
+  <button mat-flat-button (click)="goToToday()">
+    <span class="material-icons">calendar_today</span> Today
+  </button>
+  <button mat-flat-button (click)="viewMode = 'day'">
+    <span class="material-icons">calendar_view_day</span> DAY
+  </button>
+  <button mat-flat-button (click)="viewMode = 'week'">
+    <span class="material-icons">calendar_view_week</span> WEEK
+  </button>
+  <button mat-flat-button (click)="viewMode = 'month'">
+    <span class="material-icons">calendar_view_month</span> MONTH
+  </button>
+  <button mat-flat-button (click)="viewMode = 'list'">
+    <span class="material-icons">list</span> LIST
+  </button>
+</nav>
+
+<h1>Calendar</h1>
+
+<div class="calendar-container calendar-container--{{viewMode}}">
+  <div class="calendar-left-bar">
+    <div class="inline-calendar-picker">
+      <ng-container [ngSwitch]="viewMode">
+        <ng-container *ngSwitchCase="'month'">
+          <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker" [value]="(selected | async)">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <mat-card class="inline-calendar-card" style="width: 300px;">
+            <mat-calendar [selected]="(selected | async)" (selectedChange)="selected.next($event)"
+                          [dateClass]="dateClass"></mat-calendar>
+          </mat-card>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <div class="calender-chain-filter">
+      <mat-card>
+        <mat-card-title>Chain</mat-card-title>
+        <mat-card-content>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Polkadot</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox>Kusama</mat-checkbox>
+          </div>
+          <div>
+            <button mat-button><span class="material-icons">add</span> More chains</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="calender-type-filter">
+      <mat-card>
+        <mat-card-title>Type</mat-card-title>
+        <mat-card-content>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Events</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Transaction</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Calls</mat-checkbox>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="calender-area-filter">
+      <mat-card>
+        <mat-card-title>Area</mat-card-title>
+        <mat-card-content>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="false">Governance</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Staking</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Other</mat-checkbox>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="calender-accounts-filter">
+      <mat-card>
+        <mat-card-title>Accounts</mat-card-title>
+        <mat-card-content>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="false">Polkascan</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="false">Polkascan / child</mat-checkbox>
+          </div>
+          <div>
+            <button mat-button><span class="material-icons">add</span> Account</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+
+  </div>
+  <div class="calendar-body">
+
+    <ng-container *ngIf="viewMode === 'day'">
+      <div class="calendar-day-table">
+        <div class="calendar-day-date-header">
+          <h2>{{(selected | async) | date : 'fullDate'}}</h2>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">00:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">01:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">02:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">03:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">04:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">05:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">06:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">07:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">08:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">09:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">10:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">11:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column calendar-day-time-column--has-events">
+          <div class="calendar-day-time-hour">12:00</div>
+          <div class="calendar-day-time-events">
+            <div class="calendar-day-time-event">
+              <span class="calender-event-desc">Start staking session 1,234</span>
+              <a href="#" class="calendar-block-label">#654321</a>
+              <span class="calendar-block-time">12:23</span>
+            </div>
+          </div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">13:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">14:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">15:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column calendar-day-time-column--has-events">
+          <div class="calendar-day-time-hour">16:00</div>
+          <div>
+            <div class="calendar-day-time-event">
+              <span class="calender-event-desc">Start parachain lease period 66</span>
+              <a href="#" class="calendar-block-label">#654364</a>
+              <span class="calendar-block-time">16:54</span>
+            </div>
+          </div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">17:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">18:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">19:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">20:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">21:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">22:00</div>
+          <div></div>
+        </div>
+        <div class="calendar-day-time-column">
+          <div class="calendar-day-time-hour">23:00</div>
+          <div></div>
+        </div>
+      </div>
+    </ng-container>
+
+
+    <ng-container *ngIf="viewMode === 'week'">
+      <table class="calendar-week-table" *ngIf="(weekDays | async) as daysOfWeek">
+        <thead>
+        <tr>
+          <th></th>
+          <th class="calendar-week-day-header calender-week-day-column" *ngFor="let day of daysOfWeek">
+            <span>{{ day | date : 'shortDate' }}</span>
+            <ng-container *ngIf="(day | date : 'd') as dayOfMonth">
+              <ng-container *ngIf="dayOfMonth === '1' || dayOfMonth === '20' || dayOfMonth === '' + todayDate">
+                <span class="calendar-week-day-has-events"></span>
+              </ng-container>
+              <ng-container *ngIf="dayOfMonth === '' + todayDate">
+                <span class="calendar-week-day-is-today">
+                  <span class="material-icons">calendar_today</span>
+                </span>
+              </ng-container>
+            </ng-container>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="calendar-week-time-column">00:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">01:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">02:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">03:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">04:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">05:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">06:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">07:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">08:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">09:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">10:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">11:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column" [class.calendar-week-time-column--has-events]="">12:00</td>
+
+          <td *ngFor="let day of daysOfWeek">
+            <ng-container *ngIf="(day | date : 'd') as dayOfMonth">
+              <ng-container *ngIf="dayOfMonth === '1' || dayOfMonth === '20' || dayOfMonth === '' + todayDate">
+                  <span class="calendar-week-day-time-event">
+                    <span class="calender-event-desc">Start staking session 1,234</span>
+                    <a href="#" class="calendar-block-label">#654321</a>
+                    <span class="calendar-block-time">12:23</span>
+                  </span>
+              </ng-container>
+            </ng-container>
+          </td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">13:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">14:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">15:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">16:00</td>
+          <td *ngFor="let day of daysOfWeek">
+            <ng-container *ngIf="(day | date : 'd') as dayOfMonth">
+              <ng-container *ngIf="dayOfMonth === '1' || dayOfMonth === '20' || dayOfMonth === '' + todayDate">
+                  <span class="calendar-week-day-time-event">
+                    <span class="calender-event-desc">Start parachain lease period 66</span>
+                    <a href="#" class="calendar-block-label">#654364</a>
+                    <span class="calendar-block-time">16:54</span>
+                  </span>
+              </ng-container>
+            </ng-container>
+          </td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">17:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">18:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">19:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">20:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">21:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">22:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="calendar-week-time-column">23:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+  </div>
+</div>
+

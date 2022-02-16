@@ -1,0 +1,87 @@
+.accounting-menu {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: solid 1px #aaaaaa;
+  background: #fff;
+}
+
+.accounting-container {
+  display: flex;
+}
+
+.accounting-left-bar {
+  flex: 0 1 auto;
+  padding-right: 20px;
+}
+
+.accounting-body {
+  flex: 1 1 auto;
+  max-width: 100%;
+  overflow-x: scroll;
+  overflow-y: visible;
+}
+
+.accounting-balance-sheet-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  td {
+    padding: 5px;
+  }
+
+  .lb {
+    border-left: solid 1px #dfdfdf;
+  }
+
+  .rb {
+    border-right: solid 1px #dfdfdf;
+  }
+
+  .tb {
+    border-top: solid 1px #dfdfdf;
+  }
+
+  .bb {
+    border-bottom: solid 1px #dfdfdf;
+  }
+
+  .ab {
+    border: solid 1px #dfdfdf;
+  }
+
+  .debit-column {
+    width: 150px;
+  }
+
+  .credit-column {
+    width: 150px;
+  }
+
+  .nr {
+    text-align: right;
+  }
+
+  .total {
+    font-weight: bold;
+  }
+
+  .aaa {
+    display: inline-block;
+    margin-left: 1em;
+  }
+
+  .bbb {
+    display: inline-block;
+    margin-left: 2em;
+  }
+
+  .ccc {
+    display: inline-block;
+    margin-left: 3em;
+    color: blue;
+  }
+}
+

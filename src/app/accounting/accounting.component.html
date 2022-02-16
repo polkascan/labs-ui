@@ -1,0 +1,345 @@
+<nav class="accounting-menu">
+  <button mat-flat-button>
+    <span class="material-icons">calendar_today</span> Knopkse
+  </button>
+</nav>
+
+<h1>Accounting</h1>
+
+<div class="accounting-container">
+  <div class="accounting-left-bar">
+
+    <div class="accounting-chain-filter">
+      <mat-card>
+        <mat-card-title>Chain</mat-card-title>
+        <mat-card-content>
+          <button
+            class="top-bar-menu-selector ps-top-bar-network-option"
+            mat-button [matMenuTriggerFor]="networkMenu">
+            Polkadot <span class="material-icons">keyboard_arrow_down</span>
+          </button>
+          <mat-menu #networkMenu="matMenu">
+            <button mat-menu-item>Polkadot</button>
+            <button mat-menu-item>Kusama</button>
+          </mat-menu>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="accounting-entity-filter">
+      <mat-card>
+        <mat-card-title>Entity</mat-card-title>
+        <mat-card-content>
+          <button
+            class="top-bar-menu-selector ps-top-bar-network-option"
+            mat-button [matMenuTriggerFor]="entityMenu">
+            Account <span class="material-icons">keyboard_arrow_down</span>
+          </button>
+          <mat-menu #entityMenu="matMenu">
+            <button mat-menu-item>Economy</button>
+            <button mat-menu-item>Account</button>
+            <button mat-menu-item>Validator</button>
+            <button mat-menu-item>Parachain</button>
+            <button mat-menu-item>Treasury</button>
+          </mat-menu>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="accounting-accounts-filter">
+      <mat-card>
+        <mat-card-title>Accounts</mat-card-title>
+        <mat-card-content>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Polkascan</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="false">Polkascan / child</mat-checkbox>
+          </div>
+          <div>
+            <button mat-button><span class="material-icons">add</span> Account</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="accounting-report-filter">
+      <mat-card>
+        <mat-card-title>Report type</mat-card-title>
+        <mat-card-content>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Balance sheet</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Profit & Loss</mat-checkbox>
+          </div>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="false">Turnover</mat-checkbox>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="accounting-report-level-filter">
+      <mat-card>
+        <mat-card-title>Report level</mat-card-title>
+        <mat-card-content>
+          <div style="padding: 5px 10px 5px 20px">
+            <mat-checkbox [checked]="true">Extended</mat-checkbox>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+  <div class="accounting-body">
+
+    <table class="accounting-balance-sheet-table">
+      <thead>
+      <tr>
+        <th class="lb tb bb"></th>
+        <th class="year-column rb tb bb" colspan="2"><h2>2021</h2></th>
+        <th class="year-column rb tb bb" colspan="2"><h2>2022</h2></th>
+      </tr>
+      <tr>
+        <th class="lb"></th>
+        <th class="debit-column ab">Debit</th>
+        <th class="credit-column ab">Credit</th>
+        <th class="debit-column ab">Debit</th>
+        <th class="credit-column ab">Credit</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+        <td class="lb"><h3>Balance</h3></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      </tbody>
+
+      <tbody>
+      <tr>
+        <td class="lb"><span class="aaa">Assets</span></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      <tr>
+        <td class="lb"><span class="bbb">Dot assets</span></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="ccc">0403 Treasury</span></td>
+        <td class="ab nr">1000</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">1000</td>
+        <td class="ab nr"></td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="ccc">0404 Bonded</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">100</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">100</td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="bbb">Total Dot assets</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">900</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">900</td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="aaa">Total Assets</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">900</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">900</td>
+      </tr>
+      </tbody>
+
+      <tbody>
+      <tr>
+        <td class="lb"><span class="aaa">Liabilities</span></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      <tr>
+        <td class="lb"><span class="bbb">Group name</span></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="ccc">0300 gbname</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">500</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">500</td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="ccc">0300 gbname</span></td>
+        <td class="ab nr">100</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">100</td>
+        <td class="ab nr"></td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="bbb">Total group</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">400</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">400</td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="aaa">Total Liabilities</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">400</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">400</td>
+      </tr>
+      </tbody>
+
+      <tbody>
+      <tr>
+        <td class="ab total">Total Balance</td>
+        <td class="ab nr total">900</td>
+        <td class="ab nr total"></td>
+        <td class="ab nr total">900</td>
+        <td class="ab nr total"></td>
+      </tr>
+      </tbody>
+
+
+      <tbody>
+      <tr>
+        <td class="lb"><h3>Profit & Loss</h3></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      </tbody>
+
+      <tbody>
+      <tr>
+        <td class="lb"><span class="aaa">Expenses</span></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      <tr>
+        <td class="lb"><span class="bbb">Group</span></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="ccc">0800 GBname</span></td>
+        <td class="ab nr">444</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">444</td>
+        <td class="ab nr"></td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="ccc">0840 Gbname</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">100</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">100</td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="bbb">Dot assets Total</span></td>
+        <td class="ab"></td>
+        <td class="ab">900</td>
+        <td class="ab"></td>
+        <td class="ab">900</td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="aaa">Total Revenue</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">900</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">900</td>
+      </tr>
+      </tbody>
+
+      <tbody>
+      <tr>
+        <td class="lb"><span class="aaa">Expenses</span></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      <tr>
+        <td class="lb"><span class="bbb">Groep name</span></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb"></td>
+        <td class="lb rb"></td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="ccc">0900 gbname</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">500</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">500</td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="ccc">0903 gbname</span></td>
+        <td class="ab nr">100</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">100</td>
+        <td class="ab nr"></td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="bbb">group Total</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">400</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">400</td>
+      </tr>
+      <tr>
+        <td class="ab"><span class="aaa">Expenses Total</span></td>
+        <td class="ab nr"></td>
+        <td class="ab nr">400</td>
+        <td class="ab nr"></td>
+        <td class="ab nr">400</td>
+      </tr>
+      </tbody>
+
+      <tbody>
+      <tr>
+        <td class="ab total">Total Profit & Loss</td>
+        <td class="ab nr total">900</td>
+        <td class="ab nr total"></td>
+        <td class="ab nr total">900</td>
+        <td class="ab nr total"></td>
+      </tr>
+      </tbody>
+
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+</div>
+

@@ -1,0 +1,157 @@
+.calendar-menu {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: solid 1px #aaaaaa;
+  background: #fff;
+}
+
+.calendar-container {
+  display: flex;
+}
+
+.calendar-left-bar {
+  flex: 0 1 auto;
+  padding-right: 20px;
+}
+
+.calendar-body {
+  flex: 1 1 auto;
+  max-width: 100%;
+  overflow-x: scroll;
+  overflow-y: visible;
+}
+
+.calendar-day-date-header {
+  padding-left: 50px;
+  border-bottom: solid 1px #aaaaaa;
+}
+
+.calendar-day-time-column {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  border-bottom: solid 1px #dfdfdf;
+}
+
+.calendar-day-time-hour {
+  flex: 0 0 40px;
+  margin-right: 10px;
+}
+
+.calendar-day-time-events {
+
+}
+
+.calendar-block-label {
+  display: inline-block;
+  padding: 1px 5px;
+  background: #565656;
+  border-radius: 10%;
+  font-size: 0.8rem;
+  margin: 0 3px;
+  color: #fff;
+}
+
+.calendar-block-time {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0 3px;
+}
+
+.calendar-day-time-column--has-events {
+  .calendar-day-time-hour {
+    font-weight: bold;
+  }
+}
+
+.calendar-picker-date-has-events {
+  position: relative;
+
+  .mat-calendar-body-cell-content:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: 6px;
+    right: 6px;
+    background: var(--ps-top-bar-logo-dot-color);
+    border-radius: 100%;
+    opacity: 0.8;
+  }
+}
+
+.calendar-week-table {
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  th {
+    height: 40px;
+    padding: 5px;
+  }
+
+  th, td {
+    border: solid 1px #dfdfdf;
+  }
+
+  .calendar-week-time-column {
+    vertical-align: middle;
+    height: 40px;
+    padding: 0 5px 0 15px;
+  }
+
+  .calendar-week-time-column--has-events {
+    .calendar-day-time-hour {
+      font-weight: bold;
+    }
+  }
+
+  .calendar-week-day-header {
+    position: relative;
+    padding-top: 20px;
+  }
+
+  .calender-week-day-column {
+    width: 100px;
+  }
+
+  .calendar-week-day-has-events {
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    left: 6px;
+    top: 6px;
+    background: var(--ps-top-bar-logo-dot-color);
+    border-radius: 100%;
+    opacity: 0.8;
+  }
+
+  .calendar-week-day-is-today {
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    right: 6px;
+    top: 0;
+    opacity: 0.8;
+
+    .material-icons {
+      font-size: 12px;
+    }
+  }
+
+  .calendar-week-day-time-event {
+    display: block;
+    margin: 2px;
+    padding: 6px;
+    border-radius: 3px;
+    background: rgba(255, 100, 130, 0.8);
+  }
+
+  .calender-event-desc {
+    display: block;
+  }
+}
