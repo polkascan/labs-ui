@@ -1,0 +1,25 @@
+.charts-menu {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: solid 1px #aaaaaa;
+  background: #fff;
+}
+
+.charts-container {
+  display: flex;
+}
+
+.charts-left-bar {
+  flex: 0 1 auto;
+  padding-right: 20px;
+}
+
+.charts-body {
+  flex: 1 1 auto;
+  max-width: 100%;
+  overflow-x: scroll;
+  overflow-y: visible;
+}
+
